@@ -1,0 +1,22 @@
+{% extends 'store/main.html'%}              <!-- Also add a search bar! -->
+{% load static %}       
+{% block content %}    
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            {% if product.image %}
+                <img class="thumbnail" style="object-fit: contain;" src="{{ product.image.url }}" alt="Product">         <!-- .url: so we access the url instead of the file -->
+            {% else %}
+                <img src="{% static 'images/placeholder.png' %}" alt="No Picture">
+            {% endif %}
+            <div class="box-element broduct">
+                <h6><strong>{{ product.name }}</strong></h6>
+                <hr>
+                <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+                <a href="#" class="btn btn-outline-success">View</a>
+                <h4 style="float: right;" >₹ {{ product.price|floatformat:2 }}</h4>     <!-- Add Templated Value here! -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

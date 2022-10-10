@@ -1,0 +1,5 @@
+/static
+manage.py
+/store/migrations
+/Ecommerce/__pycache__
+/store/__pycache__

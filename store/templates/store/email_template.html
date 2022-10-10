@@ -1,0 +1,17 @@
+Dear Seller,
+The following are the cusotmer and order details to be catered.
+_______________________________________________________________
+Customer's Name: {{ data.form.name }} 
+Customer's contact: 
+E-mail:  {{ data.form.email }}
+_______________________________________________________________
+Customer Order:   
+{% for i in items %} 
+{{ i.product }} x{{ i.quantity }}, 
+{% endfor %}
+_______________________________________________________________
+Customer Address: 
+{{ data.shipping.address }}, {{ data.shipping.city }}, {{ data.shipping.state }}, {{ data.shipping.zipcode }}
+_______________________________________________________________
+Customer's total bill: 
+₹ {{ data.form.total|floatformat:2 }}
